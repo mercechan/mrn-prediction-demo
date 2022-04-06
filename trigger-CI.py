@@ -14,3 +14,17 @@ auth = ServicePrincipalAuthentication(
 
 aad_token = auth.get_authentication_header()
 print(f'aad_token: {aad_token}')
+
+ws = Workspace(
+    subscription_id = "19bfa77e-dd05-40a1-bd34-ca822dbac606", 
+    resource_group = "mercy-ai-ml-rg", 
+    workspace_name = "mercy-ai-ml-ws", 
+    auth=auth, 
+    _location=None, 
+    _disable_service_check=False, 
+    _workspace_id=None, 
+    sku='basic', 
+    tags=None, 
+    _cloud='AzureCloud')
+
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
